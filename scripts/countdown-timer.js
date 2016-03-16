@@ -28,7 +28,10 @@ function initializeClock(id, endtime) {
 
     if (t.total <= 0) {
       clearInterval(timeinterval);
-      ipcRenderer.sendSync('notification', 'Time\'s up!');
+      var notification = new Notification('Timer', {
+        body: 'Times\'s up!'
+      });
+
     }
   }
 
@@ -38,8 +41,8 @@ function initializeClock(id, endtime) {
 
 module.exports = function() {
   // var deadline = new Date(Date.parse(new Date()) + 15 * 24 * 60 * 60 * 1000);
-  var deadline = new Date(Date.parse(new Date()) + 1 * 1 * 20 * 60 * 1000);
+  // var deadline = new Date(Date.parse(new Date()) + 1 * 1 * 20 * 60 * 1000);
   // var deadline = new Date(Date.parse(new Date()) + 1 * 1 * 1 * 60 * 1000);
-  // var deadline = new Date(Date.parse(new Date()) + 1 * 1 * 1 * 10 * 1000);
+  var deadline = new Date(Date.parse(new Date()) + 1 * 1 * 1 * 10 * 1000);
   initializeClock('clockdiv', deadline);
 }

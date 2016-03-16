@@ -3,8 +3,6 @@
 const electron = require('electron');
 const app = electron.app;  // Module to control application life.
 const BrowserWindow = electron.BrowserWindow;  // Module to create native browser window.
-const notifier = require('node-notifier');
-const ipcMain = require('electron').ipcMain;
 
 // Keep a global reference of the window object, if you don't, the window will
 // be closed automatically when the JavaScript object is garbage collected.
@@ -19,11 +17,12 @@ app.on('window-all-closed', function() {
   }
 });
 
-// This method will be called when Electron has finished
-// initialization and is ready to create browser windows.
 app.on('ready', function() {
-  // Create the browser window.
-  mainWindow = new BrowserWindow({width: 250, height: 200});
+  mainWindow = new BrowserWindow({
+    width: 250,
+    height: 200,
+    alwaysOnTop: true
+  });
 
   // and load the index.html of the app.
   mainWindow.loadURL('file://' + __dirname + '/views/index.html');
@@ -38,9 +37,4 @@ app.on('ready', function() {
     mainWindow = null;
   });
 
-});
-
-ipcMain.on('notification', function(event, arg) {
-  console.log(arg);
-  notifier.notify({'title': 'Timer', 'message': arg});
 });

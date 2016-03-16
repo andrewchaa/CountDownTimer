@@ -9,6 +9,5 @@
   "author": "Andrew Chaa",
   "license": "ISC",
   "dependencies": {
-    "node-notifier": "^4.5.0"
   }
 }
