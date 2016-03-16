@@ -1,5 +1,7 @@
 // the source code from http://www.sitepoint.com/build-javascript-countdown-timer-no-dependencies/
 
+const ipcRenderer = require('electron').ipcRenderer;
+
 function getTimeRemaining(endtime) {
   var t = Date.parse(endtime) - Date.parse(new Date());
   var seconds = Math.floor((t / 1000) % 60);
@@ -32,6 +34,7 @@ function initializeClock(id, endtime) {
 
     if (t.total <= 0) {
       clearInterval(timeinterval);
+      ipcRenderer.sendSync('notification', 'Time\'s up!');
     }
   }
 
@@ -39,7 +42,15 @@ function initializeClock(id, endtime) {
   var timeinterval = setInterval(updateClock, 1000);
 }
 
+module.exports = function() {
+  // var deadline = new Date(Date.parse(new Date()) + 15 * 24 * 60 * 60 * 1000);
+  // var deadline = new Date(Date.parse(new Date()) + 1 * 1 * 20 * 60 * 1000);
+  // var deadline = new Date(Date.parse(new Date()) + 1 * 1 * 1 * 60 * 1000);
+  var deadline = new Date(Date.parse(new Date()) + 1 * 1 * 1 * 10 * 1000);
+  initializeClock('clockdiv', deadline);
+}
+
 // var deadline = new Date(Date.parse(new Date()) + 15 * 24 * 60 * 60 * 1000);
 // var deadline = new Date(Date.parse(new Date()) + 1 * 1 * 20 * 60 * 1000);
-var deadline = new Date(Date.parse(new Date()) + 1 * 1 * 1 * 60 * 1000);
-initializeClock('clockdiv', deadline);
+// var deadline = new Date(Date.parse(new Date()) + 1 * 1 * 1 * 60 * 1000);
+// initializeClock('clockdiv', deadline);
