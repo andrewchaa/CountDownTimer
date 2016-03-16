@@ -1,7 +1,3 @@
-// the source code from http://www.sitepoint.com/build-javascript-countdown-timer-no-dependencies/
-
-const ipcRenderer = require('electron').ipcRenderer;
-
 function getTimeRemaining(endtime) {
   var t = Date.parse(endtime) - Date.parse(new Date());
   var seconds = Math.floor((t / 1000) % 60);
@@ -39,10 +35,32 @@ function initializeClock(id, endtime) {
   var timeinterval = setInterval(updateClock, 1000);
 }
 
+
 module.exports = function() {
   // var deadline = new Date(Date.parse(new Date()) + 15 * 24 * 60 * 60 * 1000);
-  var deadline = new Date(Date.parse(new Date()) + 1 * 1 * 20 * 60 * 1000);
+  // var deadline = new Date(Date.parse(new Date()) + 1 * 1 * 20 * 60 * 1000);
   // var deadline = new Date(Date.parse(new Date()) + 1 * 1 * 1 * 60 * 1000);
   // var deadline = new Date(Date.parse(new Date()) + 1 * 1 * 1 * 10 * 1000);
-  initializeClock('clockdiv', deadline);
+  // initializeClock('clockdiv', deadline);
+  var clock = document.getElementById('clockdiv');
+  var minutesSpan = clock.querySelector('.minutes');
+  var secondsSpan = clock.querySelector('.seconds');
+  var startButton = document.getElementById('start');
+
+  minutesSpan.innerHTML = '20';
+  secondsSpan.innerHTML = '00';
+
+  startButton.onclick = function () {
+    console.log('test');
+    // var deadline = new Date(Date.parse(new Date()) + 15 * 24 * 60 * 60 * 1000);
+    // var deadline = new Date(Date.parse(new Date()) + 1 * 1 * 20 * 60 * 1000);
+    var deadline = new Date(
+      Date.parse(new Date()) +
+      (minutesSpan.innerHTML/1) * 60 * 1000 + (secondsSpan.innerHTML/1) * 60 * 1000
+    );
+    // var deadline = new Date(Date.parse(new Date()) + 1 * 1 * 1 * 60 * 1000);
+    // var deadline = new Date(Date.parse(new Date()) + 1 * 1 * 1 * 10 * 1000);
+    initializeClock('clockdiv', deadline);
+  }
+
 }
