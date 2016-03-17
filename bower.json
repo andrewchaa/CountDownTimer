@@ -1,0 +1,24 @@
+{
+  "name": "timer",
+  "description": "Timer",
+  "main": "./scripts/client.js",
+  "authors": [
+    "Andrew Chaa"
+  ],
+  "license": "ISC",
+  "homepage": "https://github.com/andrewchaa/CountDownTimer",
+  "moduleType": [
+    "amd"
+  ],
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "^3.3.6"
+  }
+}

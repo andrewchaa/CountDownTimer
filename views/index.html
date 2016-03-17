@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <title>Pomodoro!</title>
     <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="stylesheet" type="text/css" href="..\bower_components\bootstrap\dist\css\bootstrap.css">
   </head>
   <body>
     <br />
@@ -12,7 +13,9 @@
         <div><span class="minutes"></span><div class="smalltext">minutes</div></div>
         <div><span class="seconds"></span><div class="smalltext">seconds</div></div>
       </div>
-      <div class="square"><button id="start">&nbsp;&nbsp;Start!&nbsp;&nbsp;</button></div>
+      <div style="margin-top:20px;">
+        <button class="btn btn-success" id="start">&nbsp;&nbsp;Start!&nbsp;&nbsp;</button>
+      </div>
    </div>
   </body>
   <script type="text/javascript" src="../scripts/client.js"></script>

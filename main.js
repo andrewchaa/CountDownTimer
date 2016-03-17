@@ -19,10 +19,10 @@ app.on('window-all-closed', function() {
 
 app.on('ready', function() {
   mainWindow = new BrowserWindow({
-    // width: 250,
-    // height: 220,
-    width: 800,
-    height: 600,
+    width: 250,
+    height: 260,
+    // width: 800,
+    // height: 600,
     alwaysOnTop: true
   });
 
