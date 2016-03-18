@@ -51,7 +51,8 @@ module.exports = function() {
   secondsSpan.innerHTML = '00';
 
   startButton.onclick = function () {
-    console.log('test');
+    minutesSpan.innerHTML = '20';
+    secondsSpan.innerHTML = '00';
     // var deadline = new Date(Date.parse(new Date()) + 15 * 24 * 60 * 60 * 1000);
     // var deadline = new Date(Date.parse(new Date()) + 1 * 1 * 20 * 60 * 1000);
     var deadline = new Date(

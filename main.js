@@ -23,7 +23,8 @@ app.on('ready', function() {
     height: 260,
     // width: 800,
     // height: 600,
-    alwaysOnTop: true
+    alwaysOnTop: true,
+    transparent: true
   });
 
   // and load the index.html of the app.
