@@ -45,12 +45,12 @@ function initializeClock(id, endtime) {
   var secondsSpan = clock.querySelector('.seconds');
   var startButton = document.getElementById('start');
 
-  minutesSpan.innerHTML = '20';
-  secondsSpan.innerHTML = '00';
+  // minutesSpan.innerHTML = '20';
+  // secondsSpan.innerHTML = '00';
 
   startButton.onclick = function () {
-    minutesSpan.innerHTML = '20';
-    secondsSpan.innerHTML = '00';
+    // minutesSpan.innerHTML = '20';
+    // secondsSpan.innerHTML = '00';
     // var deadline = new Date(Date.parse(new Date()) + 15 * 24 * 60 * 60 * 1000);
     // var deadline = new Date(Date.parse(new Date()) + 1 * 1 * 20 * 60 * 1000);
     var deadline = new Date(

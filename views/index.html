@@ -12,17 +12,25 @@
 
   </head>
   <body>
+    <div id="view"></div>
+
     <script type="text/jsx">
       var TimerWidget = React.createClass({
+        getDefaultProps: function () {
+          return {
+            minutes: '20',
+            seconds: '00'
+          };
+        },
         render: function () {
           return (
             <div id='content' style={{display: 'block'}}>
               <br />
               <div id="clockdiv">
-                <div><span className="minutes"></span></div>&nbsp;:
-                <div><span className="seconds"></span></div>
+                <div><span className="minutes">{this.props.minutes}</span></div>&nbsp;:&nbsp;
+                <div><span className="seconds">{this.props.seconds}</span></div>
               </div>
-              <div style={{marginTop: '5px'}}>
+              <div style={{marginTop: '10px'}}>
                 <button className="btn btn-success" id="start">
                   <span className="glyphicon glyphicon-triangle-right"></span>
                 </button>
@@ -32,7 +40,7 @@
         }
       });
 
-      ReactDOM.render(React.createElement(TimerWidget), document.body);
+      ReactDOM.render(<TimerWidget />, document.getElementById('view'));
     </script>
 
   </body>
