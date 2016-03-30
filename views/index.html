@@ -22,6 +22,14 @@
             seconds: '00'
           };
         },
+        handleClick: function () {
+          console.log('HELLO');
+          var deadline = new Date(
+            Date.parse(new Date()) +
+            (this.props.minutes/1) * 60 * 1000 + (this.props.seconds/1) * 60 * 1000
+          );
+          initializeClock('clockdiv', deadline);
+        },
         render: function () {
           return (
             <div id='content' style={{display: 'block'}}>
@@ -31,7 +39,7 @@
                 <div><span className="seconds">{this.props.seconds}</span></div>
               </div>
               <div style={{marginTop: '10px'}}>
-                <button className="btn btn-success" id="start">
+                <button className="btn btn-success" id="start" onClick={this.handleClick}>
                   <span className="glyphicon glyphicon-triangle-right"></span>
                 </button>
               </div>
